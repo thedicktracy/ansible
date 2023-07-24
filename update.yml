@@ -1,0 +1,26 @@
+---
+- hosts:
+      - update
+#  remote_user: sc420f
+  become: true
+  become_user: root      
+  tasks:
+#      - name: "update"
+#        shell: uname -a
+#        register: results
+#        become: false
+#      - name: Printing the results
+#        debug:
+#          msg: "{{results.stdout_lines}}"
+     
+       - copy:
+           src: /home/sc420f/RPM-GPG-KEY-oracle
+           dest: /tmp/RPM-GPG-KEY-oracle
+           owner: root
+           group: root
+           mode: 0644
+
+#  tasks: 
+#      - rpm_key:
+#           state: present
+#           key: home/sc420f/RPM-GPG-KEY-oracle
